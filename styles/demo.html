@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Vertical Spacing Demo</title>
+    <link rel="stylesheet" href="responsive-spacing.css">
+    <style>
+        /* Demo-specific styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .demo-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .card {
+            background: white;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: var(--spacing-sm);
+            border-radius: 4px;
+        }
+        
+        .breakpoint-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: var(--spacing-xs);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            z-index: 1000;
+        }
+        
+        /* Responsive breakpoint indicators */
+        .breakpoint-indicator::after {
+            content: "XL (1441px+)";
+        }
+        
+        @media (max-width: 1440px) {
+            .breakpoint-indicator::after { content: "L (1025-1440px)"; }
+        }
+        
+        @media (max-width: 1024px) {
+            .breakpoint-indicator::after { content: "D (769-1024px)"; }
+        }
+        
+        @media (max-width: 768px) {
+            .breakpoint-indicator::after { content: "T (481-768px)"; }
+        }
+        
+        @media (max-width: 480px) {
+            .breakpoint-indicator::after { content: "M (320-480px)"; }
+        }
+    </style>
+</head>
+<body>
+    <div class="breakpoint-indicator"></div>
+    
+    <div class="container">
+        <!-- Header Section -->
+        <section class="section demo-header">
+            <h1>Responsive Vertical Spacing System</h1>
+            <p class="text-content">This demo showcases fluid vertical spacing that adapts to different screen sizes</p>
+        </section>
+
+        <!-- Introduction Section -->
+        <section class="section">
+            <h2>How It Works</h2>
+            <div class="content-block">
+                <p class="text-content">
+                    This spacing system uses CSS custom properties and clamp() functions to create 
+                    fluid vertical spacing that scales smoothly between breakpoints.
+                </p>
+                <div class="highlight">
+                    <strong>Key Features:</strong>
+                    <ul>
+                        <li>Minimum 16px spacing on mobile (320px-480px)</li>
+                        <li>Maximum 32px spacing on desktop (1441px+)</li>
+                        <li>Fluid 2.5vw scaling between min/max values</li>
+                        <li>WCAG compliant text spacing</li>
+                        <li>Smooth transitions between breakpoints</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grid Demo Section -->
+        <section class="section">
+            <h2>Grid Layout with Consistent Spacing</h2>
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Mobile First (320px+)</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-content">
+                            Base spacing starts at 16px (1rem) for optimal mobile readability.
+                            Container padding ensures minimum 1rem from screen edges.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Tablet Optimized (481px+)</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-content">
+                            Spacing scales fluidly using 2.2vw, providing comfortable 
+                            reading experience on tablet devices.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Desktop Enhanced (769px+)</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-content">
+                            Maximum spacing of 32px (2rem) prevents excessive gaps 
+                            while maintaining visual hierarchy on large screens.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Accessibility First</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-content">
+                            Line heights and spacing follow WCAG guidelines for 
+                            optimal readability across all devices and user preferences.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Demo Section -->
+        <section class="section">
+            <h2>Form Elements with Responsive Spacing</h2>
+            <div class="content-block">
+                <form>
+                    <div class="form-group">
+                        <label class="form-label" for="name">Full Name</label>
+                        <input class="form-input" type="text" id="name" placeholder="Enter your name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input class="form-input" type="email" id="email" placeholder="Enter your email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="message">Message</label>
+                        <textarea class="form-input" id="message" rows="4" placeholder="Enter your message"></textarea>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button class="button" type="submit">Submit Form</button>
+                        <button class="button" type="reset">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Typography Section -->
+        <section class="section">
+            <h2>Typography with Optimal Spacing</h2>
+            <div class="content-block">
+                <h3>Heading Level 3</h3>
+                <p class="text-content">
+                    This paragraph demonstrates the responsive line height and spacing system. 
+                    The text remains readable and comfortable across all screen sizes, with 
+                    line heights that scale appropriately from 1.4 on mobile to 1.6 on desktop.
+                </p>
+                
+                <h4>Heading Level 4</h4>
+                <p class="text-content">
+                    Another paragraph showing consistent vertical rhythm. The spacing between 
+                    headings and paragraphs maintains visual hierarchy while adapting to 
+                    different viewport sizes.
+                </p>
+                
+                <ul>
+                    <li>List items have proper spacing for readability</li>
+                    <li>Indentation scales with the overall spacing system</li>
+                    <li>Line height ensures comfortable reading experience</li>
+                    <li>Last item has no bottom margin to prevent excessive gaps</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Utility Classes Demo -->
+        <section class="section">
+            <h2>Utility Classes for Fine-Tuning</h2>
+            <div class="content-block">
+                <div class="mb-lg">
+                    <p class="text-content">This div has large bottom margin (mb-lg)</p>
+                </div>
+                
+                <div class="pt-md pb-sm">
+                    <p class="text-content">This div has medium top padding and small bottom padding</p>
+                </div>
+                
+                <div class="mt-xl">
+                    <p class="text-content">This div has extra large top margin (mt-xl)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Responsive Behavior Section -->
+        <section class="section">
+            <h2>Responsive Behavior</h2>
+            <div class="content-block">
+                <p class="text-content">
+                    <strong>Resize your browser window</strong> to see how the spacing adapts:
+                </p>
+                
+                <div class="grid grid-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>320px - 480px</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Mobile: 16px base spacing with 2vw fluid scaling</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>481px - 768px</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Tablet: 2.2vw fluid scaling for comfortable touch interaction</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>769px+</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Desktop: Scales up to 32px maximum for optimal reading</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="section">
+            <div class="content-block">
+                <p class="text-content" style="text-align: center; color: #666;">
+                    This responsive spacing system ensures consistent, accessible, and beautiful 
+                    layouts across all devices and screen sizes.
+                </p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
